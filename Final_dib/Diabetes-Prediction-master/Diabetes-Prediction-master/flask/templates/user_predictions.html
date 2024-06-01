@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Predictions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        a {
+            display: block;
+            width: 120px;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Predictions History {{ username }}</h1>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Glucose Level</th>
+            <th>Insulin</th>
+            <th>BMI</th>
+            <th>Age</th>
+            <th>Prediction Result</th>
+        </tr>
+        {% for prediction in predictions %}
+        <tr>
+            <td>{{ prediction.user.username }}</td>
+            <td>{{ prediction.Glucose_Level }}</td>
+            <td>{{ prediction.Insulin }}</td>
+            <td>{{ prediction.BMI }}</td>
+            <td>{{ prediction.Age }}</td>
+            <td>{{ prediction.Prediction_Result }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

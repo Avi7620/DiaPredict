@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Predictions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* Style the delete button */
+        button.delete-button {
+            background-color: #f44336; /* Red */
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Change the button background color on hover */
+        button.delete-button:hover {
+            background-color: #d32f2f; /* Darker red */
+        }
+
+        @media screen and (max-width: 600px) {
+            table {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Diabetes Predictions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User Email</th>
+                <th>Glucose Level</th>
+                <th>Insulin</th>
+                <th>BMI</th>
+                <th>Age</th>
+                <th>Prediction Result</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prediction in predictions %}
+            <tr>
+                <td>{{ prediction.id }}</td>
+                <td>{{ prediction.user.email }}</td>
+                <td>{{ prediction.Glucose_Level }}</td>
+                <td>{{ prediction.Insulin }}</td>
+                <td>{{ prediction.BMI }}</td>
+                <td>{{ prediction.Age }}</td>
+                <td>{{ prediction.Prediction_Result }}</td>
+                <td>
+                    <button class="delete-button" onclick="deletePrediction({{ prediction.id }})">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        function deletePrediction(predictionId) {
+            fetch(`/delete_prediction/${predictionId}`, {
+                method: 'DELETE',
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Prediction deleted successfully');
+                    // Refresh the page or update the predictions table
+                    location.reload();
+                } else {
+                    alert('Failed to delete prediction');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to delete prediction');
+            });
+        }
+    </script>
+</body>
+</html>

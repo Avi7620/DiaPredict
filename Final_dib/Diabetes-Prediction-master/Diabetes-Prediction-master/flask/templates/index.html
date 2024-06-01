@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Slide Navbar</title>
+  <link rel="stylesheet" type="text/css" href="static/login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <a id="logout-btn" href="{{ url_for('logout') }}">Logout</a>
+
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+    <div class="signup">
+      <form action="{{ url_for('predict')}}" method="post"> <!-- Specify action and method -->
+        <center>
+          <h2>predict</h2>
+        </center>
+
+        <input type="text" name="Glucose Level" placeholder="Glucose Level" required="required" />
+        <input type="text" name="Insulin" placeholder="Insulin" required="required" />
+        <input type="text" name="BMI" placeholder="BMI" required="required" />
+        <input type="text" name="Age" placeholder="Age" required="required" />
+
+        <button type="submit">Predict</button><br>
+        {{ prediction_text }}
+      </form>
+      <br>
+      <center>
+        {% if show_button %}
+        <a href="https://www.practo.com/consult" class="btn btn-primary btn-block btn-large">Get Doctor Appointment</a>
+        {% endif %}
+      </center>
+    </div>
+    <div>
+
+    </div>
+
+
+  </div>
+
+  <style>
+    #logout-btn {
+      position: fixed;
+      top: 40px;
+      right: 70px;
+      /* Top right corner */
+      background-color: #f44336;
+      /* Red background color */
+      color: #0b0909;
+      /* Text color */
+      padding: 10px 30px;
+      /* Padding inside the button */
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      /* Rounded corners */
+      font-family: 'Arial', sans-serif;
+      /* Font family for the button text */
+      font-size: 16px;
+      /* Font size for the button text */
+      font-weight: bold;
+      /* Bold font weight for the button text */
+      text-decoration: none;
+      /* Remove underline */
+    }
+
+    #logout-btn:hover {
+      background-color: #ff5252;
+      /* Lighter red background color on hover */
+      color: #fff;
+      /* White text color on hover */
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      /* Blue background color */
+      color: #fff;
+      /* White text color */
+      border: none;
+      /* Remove border */
+      border-radius: 5px;
+      /* Add border radius to the button */
+      padding: 10px 20px;
+      /* Add padding to the button */
+      cursor: pointer;
+      /* Add cursor pointer to the button */
+      font-family: 'Arial', sans-serif;
+      /* Set font family for the button text */
+      font-size: 16px;
+      /* Set font size for the button text */
+      font-weight: bold;
+      /* Set font weight for the button text */
+      text-decoration: none;
+      /* Remove underline */
+      display: inline-block;
+      /* Set display property to inline-block */
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      /* Darker blue background color on hover */
+    }
+  </style>
+</body>
+
+</html>

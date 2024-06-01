@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.webmedconsult</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://kit.fontawesome.com/382c9e01c9.js" crossorigin="anonymous"></script>
+    <style>        h2 {
+        font-size: 24px; /* Adjust font size as needed */
+        color: #333; /* Text color */
+        font-weight: bold; /* Bold font weight */
+        
+        text-align: center; /* Center align text */
+        margin-top: 20px; /* Add some top margin */
+        margin-bottom: 20px; /* Add some bottom margin */
+    }
+    .logo {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    h2 {
+        font-size: 24px;
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .logo {
+        width: 100px;
+        height: auto;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    hr {
+        border: none;
+        height: 1px;
+        background-color: #ccc;
+        margin: 20px 0;
+    }
+    
+}</style>
+</head>
+
+<body>
+    <div class="container-back">
+
+        <div id="header">
+            <div class="container">
+                <nav>
+                    
+                    <ul id="sidemenue">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                       
+                        
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/slogin2">login</a></li>
+                        <li><a href="/admin_login">Admin</a></li>
+                        <i class="fa-solid fa-xmark" onclick="closemenue()"></i>
+                    </ul>
+                    <i class="fa-solid fa-bars" onclick="openmenue()"></i>
+                </nav>
+                <hr>
+                <!-- <div class="headertext">
+                    <h3>We the future of healthcare </h3>
+                    <h1>
+                        <span>Web-<span>medconsult</span></span>
+                    </h1>
+                </div>
+            </div> -->
+        </div>
+
+        <!--------------------------------------- ABOUT -------------------------------------->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="static/6405535_25595.jpg">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-tittle">About us</h1>
+                        <p>At Diabetes Prdiction, we are committed to leveraging cutting-edge technology and data-driven approaches to address the challenges associated with diabetes management and prevention. With a deep understanding of the complexities of diabetes and its impact on individuals' lives, our team is dedicated to developing innovative solutions that empower individuals to take proactive control of their health.</p>
+                        <div class="tab-tittle">
+                            <p class="tab-links active-link" onclick="opentab('skills')">our mission</p>
+                            <p class="tab-links" onclick="opentab('exprience')">our offerings</p>
+                            <p class="tab-links" onclick="opentab('education')">our approach to healthcare</p>
+                        </div>
+                        <div class="tab-contents active-tab" id="skills">
+                            <ul>
+                                <li><span>Health is a habit</span> Our mission is to revolutionize healthcare by providing personalized diet prediction solutions that empower individuals to make informed dietary choices tailored to their unique health needs and goals. We aim to enhance overall well-being and reduce the prevalence of diet-related illnesses through cutting-edge technology and data-driven insights.</li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="exprience">
+                            <ul>
+                                <li>Personalized Diet Prediction: Utilizing advanced algorithms and machine learning techniques, we offer personalized diet predictions based on individual health profiles, dietary preferences, and objectives.</li>
+                                <li>Nutritional Guidance: Our platform provides comprehensive nutritional guidance, offering insights into optimal food choices, portion sizes, and meal planning strategies to support health goals.</li>
+                                <li>Data Integration: We integrate various data sources, including medical history, genetic predispositions, lifestyle factors, and dietary habits, to generate precise diet recommendations tailored to each user.</li>
+                               
+                                
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="education">
+                            <ul>
+                                <li>Our approach to healthcare is centered around personalized and preventive measures, leveraging technology to empower individuals to take proactive control of their health. We believe in the power of data-driven insights to enable informed decision-making and facilitate positive behavior change. By focusing on individualized dietary predictions, we aim to address the root causes of health issues and promote holistic well-being. Through collaboration with healthcare professionals and continuous innovation, we strive to make our platform accessible, intuitive, and impactful in improving health outcomes for users.</li>
+                              
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+  
+
+        <!--------------------------------- CONTACT ---------------------------------------->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+   
+                    <div class="contact-right">
+                        <form name="t" action="/contact" method="POST">
+                            <input type="text" name="name" placeholder="yourname" required>
+                            <input type="email" name="email" placeholder="youremail" required>
+                            <textarea name="message" rows="6" placeholder="your message"></textarea>
+                            <button type="submit" name="submit" class="btn btn2">submit</button>
+                        </form>
+                        <span id="msg"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>copyright &copy;Diabetes Prdiction<i class="fa-regular fa-heart"></i>All rights reserve developer chandals</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+    <script>
+        var sidmue = document.getElementById("sidemenue");
+
+        function openmenue() {
+            sidmue.style.right = "0";
+        }
+
+        function closemenue() {
+            sidmue.style.right = "-150px";
+        }
+    </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby62N5eNzG06XIWTUYsp2IllBKIfKx-77X0JuyRzLHthF9p5bgLHHaHn-OJGl17mCmqRQ/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "message send successfully"
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+</body>
+
+</html>
