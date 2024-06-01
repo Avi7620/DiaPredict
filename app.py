@@ -25,10 +25,10 @@ app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 
 # Load your machine learning model
-model = pickle.load(open('C:/Users/Lenovo/Pictures/predict_diabetes/model.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 # Load the dataset
-dataset = pd.read_csv('C:/Users/Lenovo/Pictures/predict_diabetes/diabetes.csv')
+dataset = pd.read_csv('diabetes.csv')
 dataset_X = dataset.iloc[:, [1, 2, 5, 7]].values
 
 # Scale the dataset

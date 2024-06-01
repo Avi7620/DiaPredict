@@ -8,3 +8,6 @@ seaborn==0.13.2
 Flask
 gunicorn
 flask_mail
+
+pickle
+
