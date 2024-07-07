@@ -43,10 +43,22 @@
         margin: 20px 0;
     }
     
-}</style>
+}
+.container {
+        text-align: center;
+        margin-top: 50px; /* Adjust as needed */
+    }
+    .rtl-text {
+        direction: rtl;
+        display: inline-block;
+    }
+</style>
 </head>
 
 <body>
+    <div class="container">
+        <h1 id="typing-effect">DiaPredict</h1>
+    </div>
     <div class="container-back">
 
         <div id="header">
@@ -138,7 +150,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>copyright &copy;Diabetes Prdiction<i class="fa-regular fa-heart"></i>All rights reserve developer chandals</p>
+                <p>copyright &copy;Diabetes Prdiction<i class="fa-regular fa-heart"></i>All rights reserve developer Avinash</p>
             </div>
         </div>
 
@@ -188,6 +200,26 @@
                 })
                 .catch(error => console.error('Error!', error.message))
         })
+
+
+    </script>
+    <script>
+                const typingElement = document.getElementById('typing-effect');
+    const word = typingElement.textContent.trim();
+    let charIndex = 0;
+
+    function typeText() {
+        if (charIndex <= word.length) {
+            typingElement.innerHTML = word.slice(0, charIndex);
+            charIndex++;
+            setTimeout(typeText, 300); // Typing speed (milliseconds)
+        } else {
+            charIndex = 0;
+            setTimeout(typeText, 1000); // Restart typing after completion (milliseconds)
+        }
+    }
+
+    typeText();
     </script>
 
 </body>

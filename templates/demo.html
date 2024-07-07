@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typing Effect</title>
+<style>
+    .container {
+        text-align: center;
+        margin-top: 50px; /* Adjust as needed */
+    }
+    .rtl-text {
+        direction: rtl;
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="typing-effect">DiaPredict</h1>
+    </div>
+
+<script>
+    const typingElement = document.getElementById('typing-effect');
+    const word = typingElement.textContent.trim();
+    let charIndex = 0;
+
+    function typeText() {
+        if (charIndex <= word.length) {
+            typingElement.innerHTML = word.slice(0, charIndex);
+            charIndex++;
+            setTimeout(typeText, 300); // Typing speed (milliseconds)
+        } else {
+            charIndex = 0;
+            setTimeout(typeText, 1000); // Restart typing after completion (milliseconds)
+        }
+    }
+
+    typeText();
+</script>
+
+</body>
+</html>
