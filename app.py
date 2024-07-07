@@ -11,6 +11,7 @@ app = Flask(__name__)
 # Configure SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///prediction222.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
 app.secret_key = 'your_secret_key_here'
 
