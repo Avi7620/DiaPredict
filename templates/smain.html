@@ -72,13 +72,18 @@
         <div id="header">
             <div class="container">
                 <nav>
-                    <a class="navbar-brand" href="#">
-                        <image src="static/download (6).png" width="100" height="100" ></image>
+                    <a class="navbar-brand" href="#header">
+                        <image src="static/Screenshot 2024-07-08 093010.png" width="70" height="60" ></image>
+                        <image src="static/Screenshot 2024-07-08 094327.png" width="200" height="50" ></image>
 
                     </a>
-                    <div class="container">
+                    <!-- <div class="container">
                         <h1 id="typing-effect">DiaPredict</h1>
-                    </div>
+                    </div> -->
+                    <a class="navbar-brand" href="#header">
+                        
+                    </a>
+
                     
                     <ul id="sidemenue">
                         <li><a href="#header">Home</a></li>
@@ -227,10 +232,10 @@
         if (charIndex <= word.length) {
             typingElement.innerHTML = word.slice(0, charIndex);
             charIndex++;
-            setTimeout(typeText, 300); // Typing speed (milliseconds)
+            setTimeout(typeText, 400); // Typing speed (milliseconds)
         } else {
             charIndex = 0;
-            setTimeout(typeText, 1000); // Restart typing after completion (milliseconds)
+            setTimeout(typeText, 2000); // Restart typing after completion (milliseconds)
         }
     }
 
